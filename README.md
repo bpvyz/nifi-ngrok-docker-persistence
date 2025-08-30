@@ -60,7 +60,7 @@ docker build -t test-nifi .
    > * Create a directory called `nifi_data` in the project root.
    > * If `nifi_data` already exists, NiFi will start with that data mounted as volumes (persistence).
 
-   > You can also rename container-related variables directly in the `main()` function if needed.
+   > You can also modify container-related variables directly in the `main()` function if needed.
 
 ---
 

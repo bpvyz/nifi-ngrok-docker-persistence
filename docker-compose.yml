@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  nifi:
+    image: test-nifi
+    ports:
+      - "8443:8443"
+    environment:
+      NIFI_USERNAME: admin
+      NIFI_PASSWORD: clanker
+      NIFI_WEB_HTTPS_PORT: 8443
+      NIFI_WEB_HTTPS_HOST: 0.0.0.0
+      NIFI_WEB_PROXY_HOST: ${NIFI_WEB_PROXY_HOST}  # Dynamic ngrok url from .env or CLI
+    volumes:
+      - ./nifi_data/conf:/opt/nifi/nifi-current/conf
+      - ./nifi_data/database_repository:/opt/nifi/nifi-current/database_repository
+      - ./nifi_data/flowfile_repository:/opt/nifi/nifi-current/flowfile_repository
+      - ./nifi_data/content_repository:/opt/nifi/nifi-current/content_repository
+      - ./nifi_data/provenance_repository:/opt/nifi/nifi-current/provenance_repository
+      - ./nifi_data/certs:/opt/nifi/nifi-current/certs

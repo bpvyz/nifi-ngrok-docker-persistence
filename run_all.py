@@ -29,7 +29,7 @@ def get_ngrok_url_subprocess():
     """Get ngrok URL by parsing subprocess output (alternative method)"""
     # Start ngrok process in HTTP mode on port 8443
     proc = subprocess.Popen(
-        ["ngrok", "http", "8443"],
+        ["ngrok", "http", "https://localhost:8443", "--host-header=localhost"],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
